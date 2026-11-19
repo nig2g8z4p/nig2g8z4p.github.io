@@ -1,0 +1,1459 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>花都动漫_原创影像社区|品牌官方影像平台</title>
+<meta name="description" content="花都动漫官方网站，深耕原创动漫影像领域，聚合创作者、专题企划与社区内容，呈现高品质品牌影像内容生态。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23235a4e'/%3E%3Cpath d='M24 18l24 14-24 14z' fill='%23f3e9d2'/%3E%3C/svg%3E">
+<style>
+:root{
+  --hdm-bg:#f6f4ec;
+  --hdm-paper:#fffdf7;
+  --hdm-ink:#20302b;
+  --hdm-ink-soft:#4d5f58;
+  --hdm-green:#235a4e;
+  --hdm-green-deep:#173d35;
+  --hdm-leaf:#7ba88f;
+  --hdm-earth:#c8a168;
+  --hdm-earth-soft:#e7d8b8;
+  --hdm-line:#ddd6c2;
+  --hdm-shadow:0 14px 40px rgba(35,90,78,.12);
+  --hdm-radius:18px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:118px}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--hdm-bg);
+  color:var(--hdm-ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul{list-style:none}
+
+/* ============ 吸顶区域 ============ */
+.hdm-sticky-head{
+  position:sticky;top:0;z-index:100;
+  background:var(--hdm-paper);
+  box-shadow:0 2px 0 rgba(0,0,0,.04);
+}
+.hdm-notice-bar{
+  background:linear-gradient(90deg,var(--hdm-green-deep),var(--hdm-green));
+  color:#f3e9d2;
+  font-size:13px;
+  letter-spacing:.4px;
+}
+.hdm-notice-inner{
+  max-width:1200px;margin:0 auto;
+  padding:8px 24px;
+  display:flex;align-items:center;gap:14px;
+  overflow:hidden;
+}
+.hdm-notice-badge{
+  flex:0 0 auto;
+  background:var(--hdm-earth);
+  color:var(--hdm-green-deep);
+  font-weight:700;font-size:11px;
+  padding:2px 8px;border-radius:20px;
+  letter-spacing:1px;
+}
+.hdm-notice-track{
+  display:flex;gap:48px;white-space:nowrap;
+  animation:hdmNoticeScroll 26s linear infinite;
+}
+.hdm-notice-track:hover{animation-play-state:paused}
+@keyframes hdmNoticeScroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+.hdm-notice-track span{opacity:.92}
+
+/* ============ 页头导航 ============ */
+.hdm-header{background:var(--hdm-paper);border-bottom:1px solid var(--hdm-line)}
+.hdm-header-inner{
+  max-width:1200px;margin:0 auto;
+  padding:12px 24px;
+  display:flex;align-items:center;gap:28px;
+}
+.hdm-logo{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.hdm-logo-mark{
+  width:42px;height:42px;border-radius:12px;
+  background:var(--hdm-green);
+  display:grid;place-items:center;
+  color:#f3e9d2;
+  box-shadow:3px 3px 0 var(--hdm-earth-soft);
+}
+.hdm-logo-mark svg{width:22px;height:22px}
+.hdm-logo-text strong{display:block;font-size:18px;letter-spacing:2px;line-height:1.2}
+.hdm-logo-text small{display:block;font-size:10px;letter-spacing:3px;color:var(--hdm-ink-soft);text-transform:uppercase}
+.hdm-nav{display:flex;gap:4px;flex:1 1 auto;flex-wrap:wrap}
+.hdm-nav a{
+  font-size:14px;padding:6px 12px;border-radius:10px;
+  color:var(--hdm-ink-soft);transition:.2s;white-space:nowrap;
+}
+.hdm-nav a:hover,.hdm-nav a.is-active{background:#eef4ef;color:var(--hdm-green);font-weight:600}
+.hdm-search{
+  flex:0 0 230px;position:relative;
+}
+.hdm-search input{
+  width:100%;padding:9px 14px 9px 36px;
+  border-radius:24px;border:1px solid var(--hdm-line);
+  background:#fbfaf4;font-size:13px;outline:none;
+  transition:.2s;color:var(--hdm-ink);
+}
+.hdm-search input:focus{border-color:var(--hdm-leaf);box-shadow:0 0 0 3px rgba(123,168,143,.18)}
+.hdm-search-icon{
+  position:absolute;left:12px;top:50%;transform:translateY(-50%);
+  width:16px;height:16px;color:var(--hdm-ink-soft);
+}
+.hdm-search-tip{
+  position:absolute;left:0;right:0;top:calc(100% + 8px);
+  background:#fff;border:1px solid var(--hdm-line);
+  border-radius:12px;box-shadow:var(--hdm-shadow);
+  padding:10px 14px;font-size:12px;color:var(--hdm-ink-soft);
+  display:none;z-index:120;
+}
+.hdm-search-tip.is-show{display:block}
+.hdm-menu-toggle{display:none;font-size:22px;padding:4px 8px;color:var(--hdm-green)}
+
+/* ============ 通用容器 ============ */
+.hdm-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.hdm-section{padding:72px 0}
+.hdm-section--tight{padding:48px 0}
+.hdm-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--hdm-earth);font-weight:700;margin-bottom:12px;
+}
+.hdm-eyebrow::before{content:"";width:26px;height:2px;background:var(--hdm-earth)}
+.hdm-h2{font-size:30px;line-height:1.3;letter-spacing:1px;margin-bottom:10px}
+.hdm-h2 em{font-style:normal;color:var(--hdm-green)}
+.hdm-section-lead{font-size:15px;color:var(--hdm-ink-soft);max-width:760px;margin-bottom:34px}
+.hdm-h3{font-size:17px;letter-spacing:.5px}
+
+/* ============ 首屏 ============ */
+.hdm-hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 420px at 85% -10%,rgba(200,161,104,.20),transparent 65%),
+    radial-gradient(700px 380px at 0% 110%,rgba(123,168,143,.22),transparent 60%),
+    var(--hdm-paper);
+  border-bottom:1px solid var(--hdm-line);
+}
+.hdm-hero-inner{
+  max-width:1200px;margin:0 auto;
+  padding:64px 24px 72px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;
+}
+.hdm-hero-copy h1{
+  font-size:clamp(38px,5vw,62px);
+  line-height:1.12;letter-spacing:2px;
+  color:var(--hdm-green-deep);
+  margin:8px 0 18px;
+}
+.hdm-hero-copy h1 span{
+  position:relative;color:var(--hdm-green);
+}
+.hdm-hero-copy h1 span::after{
+  content:"";position:absolute;left:0;right:0;bottom:4px;height:10px;
+  background:var(--hdm-earth-soft);z-index:-1;border-radius:4px;
+}
+.hdm-hero-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#eef4ef;color:var(--hdm-green);
+  font-size:13px;font-weight:600;letter-spacing:1px;
+  padding:6px 14px;border-radius:24px;margin-bottom:6px;
+}
+.hdm-hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--hdm-green);animation:hdmPulse 2s infinite}
+@keyframes hdmPulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hdm-hero-desc{font-size:15.5px;color:var(--hdm-ink-soft);margin-bottom:26px;max-width:560px}
+.hdm-hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:32px}
+.hdm-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 26px;border-radius:30px;
+  font-size:14px;font-weight:600;letter-spacing:.5px;
+  transition:.22s;border:1px solid transparent;
+}
+.hdm-btn--primary{background:var(--hdm-green);color:#f3e9d2;box-shadow:0 8px 20px rgba(35,90,78,.25)}
+.hdm-btn--primary:hover{background:var(--hdm-green-deep);transform:translateY(-2px)}
+.hdm-btn--ghost{border-color:var(--hdm-green);color:var(--hdm-green)}
+.hdm-btn--ghost:hover{background:#eef4ef;transform:translateY(-2px)}
+.hdm-btn--earth{background:var(--hdm-earth);color:var(--hdm-green-deep)}
+.hdm-btn--earth:hover{filter:brightness(1.06);transform:translateY(-2px)}
+.hdm-stats{display:flex;gap:36px;flex-wrap:wrap}
+.hdm-stat strong{display:block;font-size:26px;color:var(--hdm-green);letter-spacing:1px}
+.hdm-stat span{font-size:12.5px;color:var(--hdm-ink-soft);letter-spacing:1px}
+
+.hdm-hero-visual{position:relative}
+.hdm-hero-frame{
+  border-radius:26px;overflow:hidden;
+  box-shadow:var(--hdm-shadow);
+  border:6px solid #fff;
+  transform:rotate(-1.2deg);
+  background:#fff;
+}
+.hdm-hero-frame img{width:100%;height:auto}
+.hdm-floating-card{
+  position:absolute;right:-10px;bottom:-22px;
+  background:#fff;border-radius:16px;padding:12px 18px;
+  box-shadow:var(--hdm-shadow);
+  display:flex;align-items:center;gap:12px;
+  border:1px solid var(--hdm-line);
+  animation:hdmFloat 4s ease-in-out infinite;
+}
+@keyframes hdmFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hdm-floating-card .avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--hdm-leaf),var(--hdm-green));
+  display:grid;place-items:center;color:#fff;font-weight:700;font-size:15px;
+}
+.hdm-floating-card b{display:block;font-size:13px;line-height:1.3}
+.hdm-floating-card small{font-size:11px;color:var(--hdm-ink-soft)}
+
+/* ============ 深度解析 ============ */
+.hdm-about{background:linear-gradient(180deg,#fbf8ef,var(--hdm-bg))}
+.hdm-about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.hdm-about-text p{font-size:15px;color:var(--hdm-ink-soft);margin-bottom:16px;text-align:justify}
+.hdm-about-text p strong{color:var(--hdm-green);font-weight:700}
+.hdm-about-cards{display:grid;gap:16px}
+.hdm-about-card{
+  background:#fff;border:1px solid var(--hdm-line);
+  border-radius:var(--hdm-radius);padding:20px 22px;
+  border-left:5px solid var(--hdm-leaf);
+  transition:.22s;
+}
+.hdm-about-card:hover{transform:translateX(6px);box-shadow:var(--hdm-shadow)}
+.hdm-about-card h4{font-size:15px;margin-bottom:6px;color:var(--hdm-green-deep)}
+.hdm-about-card p{font-size:13.5px;color:var(--hdm-ink-soft);margin:0}
+
+/* ============ 焦点内容 ============ */
+.hdm-focus-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px}
+.hdm-focus-main{
+  position:relative;border-radius:22px;overflow:hidden;
+  box-shadow:var(--hdm-shadow);min-height:380px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.hdm-focus-main img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hdm-focus-main::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(23,61,53,0) 30%,rgba(23,61,53,.88));
+}
+.hdm-focus-main-content{position:relative;z-index:2;padding:28px;color:#f6f2e6}
+.hdm-focus-main-content .tag{
+  display:inline-block;background:var(--hdm-earth);color:var(--hdm-green-deep);
+  font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:1px;
+}
+.hdm-focus-main-content h3{font-size:22px;margin-bottom:8px;line-height:1.35}
+.hdm-focus-main-content p{font-size:13.5px;opacity:.85;margin-bottom:14px}
+.hdm-focus-side{display:grid;gap:18px}
+.hdm-focus-item{
+  display:grid;grid-template-columns:120px 1fr;gap:14px;
+  background:#fff;border-radius:16px;padding:12px;
+  border:1px solid var(--hdm-line);transition:.22s;align-items:center;
+}
+.hdm-focus-item:hover{box-shadow:var(--hdm-shadow);transform:translateY(-3px)}
+.hdm-focus-thumb{border-radius:10px;overflow:hidden;aspect-ratio:16/10;background:#e8e4d6}
+.hdm-focus-thumb img{width:100%;height:100%;object-fit:cover}
+.hdm-focus-item h4{font-size:14.5px;line-height:1.4;margin-bottom:5px}
+.hdm-focus-item small{font-size:12px;color:var(--hdm-ink-soft)}
+
+/* ============ 视频流 ============ */
+.hdm-video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.hdm-video-card{
+  background:#fff;border-radius:var(--hdm-radius);overflow:hidden;
+  border:1px solid var(--hdm-line);
+  transition:.25s;display:flex;flex-direction:column;
+}
+.hdm-video-card:hover{transform:translateY(-6px);box-shadow:var(--hdm-shadow);border-color:var(--hdm-leaf)}
+.hdm-video-cover{
+  position:relative;aspect-ratio:16/9;overflow:hidden;background:#dfe7e0;
+}
+.hdm-video-cover img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.hdm-video-card:hover .hdm-video-cover img{transform:scale(1.05)}
+.hdm-play{
+  position:absolute;inset:0;display:grid;place-items:center;
+  background:rgba(23,61,53,.18);
+}
+.hdm-play svg{width:46px;height:46px;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35));transition:.2s}
+.hdm-video-card:hover .hdm-play svg{transform:scale(1.12)}
+.hdm-video-tag{
+  position:absolute;left:10px;top:10px;
+  background:rgba(255,253,247,.92);color:var(--hdm-green-deep);
+  font-size:11px;font-weight:700;padding:3px 9px;border-radius:16px;letter-spacing:.5px;
+}
+.hdm-video-duration{
+  position:absolute;right:10px;bottom:10px;
+  background:rgba(23,61,53,.8);color:#fff;font-size:11px;
+  padding:2px 8px;border-radius:10px;
+}
+.hdm-video-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column}
+.hdm-video-body h3{font-size:15.5px;line-height:1.42;margin-bottom:8px}
+.hdm-video-body p{font-size:13px;color:var(--hdm-ink-soft);margin-bottom:12px;flex:1}
+.hdm-video-meta{
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12px;color:var(--hdm-ink-soft);padding-top:10px;border-top:1px dashed var(--hdm-line);
+}
+.hdm-video-author{display:flex;align-items:center;gap:7px}
+.hdm-mini-avatar{
+  width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
+  font-size:11px;font-weight:700;color:#fff;flex:0 0 auto;
+}
+.hdm-video-actions{display:flex;gap:10px}
+.hdm-icon-btn{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:12px;color:var(--hdm-ink-soft);transition:.18s;
+}
+.hdm-icon-btn svg{width:14px;height:14px}
+.hdm-icon-btn:hover{color:var(--hdm-green)}
+.hdm-icon-btn.is-liked{color:#c0563a}
+.hdm-icon-btn.is-saved{color:var(--hdm-earth)}
+
+/* ============ 专题 ============ */
+.hdm-topics{background:var(--hdm-green-deep);color:#f3ecda;position:relative;overflow:hidden}
+.hdm-topics::before{
+  content:"";position:absolute;right:-120px;top:-120px;width:360px;height:360px;
+  border-radius:50%;border:1px solid rgba(243,236,218,.12);
+}
+.hdm-topics::after{
+  content:"";position:absolute;left:-80px;bottom:-140px;width:300px;height:300px;
+  border-radius:50%;border:1px solid rgba(243,236,218,.1);
+}
+.hdm-topics .hdm-eyebrow{color:var(--hdm-earth)}
+.hdm-topics .hdm-eyebrow::before{background:var(--hdm-earth)}
+.hdm-topics .hdm-h2{color:#fff}
+.hdm-topics .hdm-h2 em{color:var(--hdm-earth)}
+.hdm-topics .hdm-section-lead{color:rgba(243,236,218,.72)}
+.hdm-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative;z-index:2}
+.hdm-topic-card{
+  background:rgba(255,253,247,.06);
+  border:1px solid rgba(243,236,218,.16);
+  border-radius:var(--hdm-radius);overflow:hidden;
+  transition:.25s;display:flex;flex-direction:column;
+}
+.hdm-topic-card:hover{background:rgba(255,253,247,.12);transform:translateY(-5px)}
+.hdm-topic-cover{aspect-ratio:16/9;overflow:hidden}
+.hdm-topic-cover img{width:100%;height:100%;object-fit:cover}
+.hdm-topic-body{padding:18px 20px 20px}
+.hdm-topic-body h3{font-size:16.5px;margin-bottom:8px;color:#fff}
+.hdm-topic-body p{font-size:13px;color:rgba(243,236,218,.72);margin-bottom:12px}
+.hdm-topic-status{
+  display:inline-block;font-size:11.5px;padding:3px 10px;border-radius:16px;
+  background:rgba(200,161,104,.22);color:var(--hdm-earth);letter-spacing:.5px;
+}
+
+/* ============ 创作者 ============ */
+.hdm-creators-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.hdm-creator-card{
+  background:#fff;border:1px solid var(--hdm-line);border-radius:var(--hdm-radius);
+  padding:24px 20px;text-align:center;transition:.25s;position:relative;overflow:hidden;
+}
+.hdm-creator-card::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:64px;
+  background:linear-gradient(135deg,#eef4ef,#f6f0e2);
+}
+.hdm-creator-card:hover{transform:translateY(-6px);box-shadow:var(--hdm-shadow)}
+.hdm-creator-avatar{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 14px;
+  display:grid;place-items:center;font-size:22px;font-weight:700;color:#fff;
+  position:relative;z-index:2;border:3px solid #fff;box-shadow:0 6px 16px rgba(35,90,78,.18);
+}
+.hdm-creator-card h3{font-size:15.5px;margin-bottom:4px;position:relative;z-index:2}
+.hdm-creator-field{font-size:12px;color:var(--hdm-earth);font-weight:700;letter-spacing:1px;margin-bottom:10px}
+.hdm-creator-card p{font-size:12.5px;color:var(--hdm-ink-soft);margin-bottom:14px;min-height:54px}
+.hdm-creator-stats{display:flex;justify-content:center;gap:18px;font-size:12px;color:var(--hdm-ink-soft);border-top:1px dashed var(--hdm-line);padding-top:12px}
+.hdm-creator-stats b{display:block;color:var(--hdm-green);font-size:15px}
+
+/* ============ 影像墙 ============ */
+.hdm-wall-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  grid-auto-rows:130px;gap:14px;
+}
+.hdm-wall-item{
+  position:relative;border-radius:14px;overflow:hidden;
+  cursor:pointer;box-shadow:0 4px 14px rgba(35,90,78,.08);
+}
+.hdm-wall-item img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.hdm-wall-item:hover img{transform:scale(1.07)}
+.hdm-wall-item::after{
+  content:attr(data-label);position:absolute;left:0;right:0;bottom:0;
+  padding:22px 12px 8px;font-size:12px;color:#fff;
+  background:linear-gradient(transparent,rgba(23,61,53,.82));
+  opacity:0;transition:.3s;transform:translateY(6px);
+}
+.hdm-wall-item:hover::after{opacity:1;transform:translateY(0)}
+.hdm-wall-item--big{grid-column:span 2;grid-row:span 2}
+.hdm-wall-item--wide{grid-column:span 2}
+.hdm-wall-item--tall{grid-row:span 2}
+
+/* ============ 声音 ============ */
+.hdm-voices{background:linear-gradient(180deg,#fbf8ef,#f2efe3)}
+.hdm-voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.hdm-voice-card{
+  background:#fff;border-radius:var(--hdm-radius);padding:24px;
+  border:1px solid var(--hdm-line);position:relative;transition:.22s;
+}
+.hdm-voice-card:hover{transform:translateY(-4px);box-shadow:var(--hdm-shadow)}
+.hdm-voice-quote{font-size:34px;line-height:1;color:var(--hdm-earth-soft);font-family:Georgia,serif;margin-bottom:6px}
+.hdm-voice-card p{font-size:14px;color:var(--hdm-ink-soft);margin-bottom:18px}
+.hdm-voice-person{display:flex;align-items:center;gap:10px}
+.hdm-voice-person .hdm-mini-avatar{width:34px;height:34px;font-size:13px}
+.hdm-voice-person b{display:block;font-size:13.5px}
+.hdm-voice-person small{font-size:11.5px;color:var(--hdm-ink-soft)}
+
+/* ============ 动态+FAQ ============ */
+.hdm-split{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;align-items:start}
+.hdm-timeline{position:relative;padding-left:24px}
+.hdm-timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--hdm-line)}
+.hdm-timeline-item{position:relative;padding-bottom:24px}
+.hdm-timeline-item:last-child{padding-bottom:0}
+.hdm-timeline-item::before{
+  content:"";position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;
+  background:#fff;border:3px solid var(--hdm-leaf);
+}
+.hdm-timeline-item time{font-size:12px;color:var(--hdm-earth);font-weight:700;letter-spacing:1px}
+.hdm-timeline-item h4{font-size:14.5px;margin:4px 0 4px}
+.hdm-timeline-item p{font-size:13px;color:var(--hdm-ink-soft)}
+.hdm-faq details{
+  background:#fff;border:1px solid var(--hdm-line);border-radius:14px;
+  margin-bottom:12px;padding:0 20px;transition:.2s;
+}
+.hdm-faq details[open]{border-color:var(--hdm-leaf);box-shadow:0 8px 22px rgba(35,90,78,.08)}
+.hdm-faq summary{
+  cursor:pointer;list-style:none;padding:16px 0;
+  font-size:14.5px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+.hdm-faq summary::-webkit-details-marker{display:none}
+.hdm-faq summary::after{content:"+";font-size:20px;color:var(--hdm-leaf);transition:.2s;font-weight:400}
+.hdm-faq details[open] summary::after{transform:rotate(45deg)}
+.hdm-faq details p{font-size:13.5px;color:var(--hdm-ink-soft);padding-bottom:16px}
+
+/* ============ 投稿CTA ============ */
+.hdm-cta{
+  background:linear-gradient(120deg,var(--hdm-green),var(--hdm-green-deep));
+  border-radius:26px;padding:48px;color:#f3ecda;
+  display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;
+  position:relative;overflow:hidden;
+}
+.hdm-cta::after{
+  content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;
+  border-radius:50%;border:1px solid rgba(243,236,218,.18);
+}
+.hdm-cta h3{font-size:26px;margin-bottom:8px;color:#fff}
+.hdm-cta p{font-size:14px;color:rgba(243,236,218,.78);max-width:520px}
+
+/* ============ 页脚 ============ */
+.hdm-footer{background:var(--hdm-green-deep);color:#cfd9cf;padding:56px 0 0;margin-top:72px}
+.hdm-footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:36px;padding-bottom:40px}
+.hdm-footer h4{color:#fff;font-size:14px;margin-bottom:14px;letter-spacing:1.5px}
+.hdm-footer p,.hdm-footer li{font-size:13px;line-height:2;color:#aebbb0}
+.hdm-footer li a:hover{color:var(--hdm-earth)}
+.hdm-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.hdm-footer-brand .hdm-logo-mark{background:var(--hdm-earth);color:var(--hdm-green-deep);box-shadow:none}
+.hdm-footer-brand strong{color:#fff;font-size:17px;letter-spacing:2px}
+.hdm-footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:18px 0;font-size:12px;color:#8fa094;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+}
+
+/* ============ 弹窗 & Toast ============ */
+.hdm-modal-mask{
+  position:fixed;inset:0;background:rgba(23,61,53,.55);
+  display:none;align-items:center;justify-content:center;z-index:300;padding:24px;
+  backdrop-filter:blur(3px);
+}
+.hdm-modal-mask.is-open{display:flex}
+.hdm-modal{
+  background:#fff;border-radius:20px;max-width:460px;width:100%;
+  padding:30px;box-shadow:0 30px 80px rgba(0,0,0,.3);
+  animation:hdmModalIn .28s ease;
+}
+@keyframes hdmModalIn{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.hdm-modal h3{font-size:19px;margin-bottom:8px;color:var(--hdm-green-deep)}
+.hdm-modal p{font-size:13.5px;color:var(--hdm-ink-soft);margin-bottom:18px}
+.hdm-modal input,.hdm-modal textarea{
+  width:100%;border:1px solid var(--hdm-line);border-radius:10px;
+  padding:10px 14px;font-size:13.5px;margin-bottom:12px;font-family:inherit;outline:none;resize:vertical;
+}
+.hdm-modal input:focus,.hdm-modal textarea:focus{border-color:var(--hdm-leaf)}
+.hdm-modal-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:8px}
+.hdm-modal-close{
+  position:absolute;right:18px;top:14px;font-size:22px;color:var(--hdm-ink-soft);
+}
+.hdm-modal-box{position:relative}
+.hdm-toast{
+  position:fixed;left:50%;bottom:36px;transform:translate(-50%,28px);
+  background:var(--hdm-green-deep);color:#f3ecda;
+  padding:11px 24px;border-radius:30px;font-size:13.5px;
+  opacity:0;pointer-events:none;transition:.3s;z-index:400;
+  box-shadow:0 12px 30px rgba(23,61,53,.35);
+}
+.hdm-toast.is-show{opacity:1;transform:translate(-50%,0)}
+.hdm-backtop{
+  position:fixed;right:24px;bottom:24px;width:46px;height:46px;border-radius:50%;
+  background:var(--hdm-green);color:#f3ecda;display:grid;place-items:center;
+  box-shadow:0 10px 24px rgba(35,90,78,.3);z-index:200;
+  opacity:0;pointer-events:none;transition:.3s;
+}
+.hdm-backtop.is-show{opacity:1;pointer-events:auto}
+.hdm-backtop:hover{background:var(--hdm-green-deep);transform:translateY(-3px)}
+
+/* ============ 响应式 ============ */
+@media(max-width:1024px){
+  .hdm-hero-inner{grid-template-columns:1fr;gap:40px}
+  .hdm-about-grid{grid-template-columns:1fr;gap:30px}
+  .hdm-focus-grid{grid-template-columns:1fr}
+  .hdm-video-grid{grid-template-columns:repeat(2,1fr)}
+  .hdm-topic-grid{grid-template-columns:repeat(2,1fr)}
+  .hdm-creators-grid{grid-template-columns:repeat(2,1fr)}
+  .hdm-voice-grid{grid-template-columns:repeat(2,1fr)}
+  .hdm-split{grid-template-columns:1fr;gap:36px}
+  .hdm-footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .hdm-notice-track{gap:36px}
+  .hdm-header-inner{flex-wrap:wrap;gap:12px}
+  .hdm-nav{
+    display:none;order:5;width:100%;
+    flex-direction:column;gap:2px;padding-bottom:10px;
+  }
+  .hdm-nav.is-open{display:flex}
+  .hdm-nav a{padding:10px 12px;border-radius:10px}
+  .hdm-menu-toggle{display:block;margin-left:auto;order:2}
+  .hdm-search{order:3;flex:1 1 100%}
+  .hdm-section{padding:52px 0}
+  .hdm-h2{font-size:24px}
+  .hdm-video-grid,.hdm-topic-grid,.hdm-creators-grid,.hdm-voice-grid{grid-template-columns:1fr}
+  .hdm-wall-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:120px}
+  .hdm-hero-copy h1{font-size:38px}
+  .hdm-cta{padding:32px}
+  .hdm-footer-grid{grid-template-columns:1fr;gap:24px}
+  .hdm-floating-card{right:8px;bottom:-16px;padding:10px 14px}
+  .hdm-stats{gap:24px}
+  .hdm-focus-item{grid-template-columns:96px 1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶区域：公告条 + 页头 -->
+<div class="hdm-sticky-head">
+  <div class="hdm-notice-bar" aria-label="站内公告">
+    <div class="hdm-notice-inner">
+      <span class="hdm-notice-badge">官方发布</span>
+      <div class="hdm-notice-track">
+        <span>「花都动漫」2026冬季原创企划《巷口的光》正式上线，首批6支短片同步更新</span>
+        <span>年度创作者招募报名通道已开启，面向花都本地与全国动漫影像作者</span>
+        <span>社区投稿新功能：支持分镜脚本上传与创作挑战投票，欢迎参与</span>
+        <span>「花都动漫」2026冬季原创企划《巷口的光》正式上线，首批6支短片同步更新</span>
+        <span>年度创作者招募报名通道已开启，面向花都本地与全国动漫影像作者</span>
+        <span>社区投稿新功能：支持分镜脚本上传与创作挑战投票，欢迎参与</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="hdm-header">
+    <div class="hdm-header-inner">
+      <a class="hdm-logo" href="#top" aria-label="花都动漫官网首页">
+        <span class="hdm-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5l11 7-11 7V5z" fill="currentColor"/></svg>
+        </span>
+        <span class="hdm-logo-text">
+          <strong>花都动漫</strong>
+          <small>HUADU ANIME</small>
+        </span>
+      </a>
+      <button class="hdm-menu-toggle" id="hdmMenuToggle" aria-label="展开导航菜单" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="hdm-nav" id="hdmNav" aria-label="主导航">
+        <a href="#top" class="is-active">首页</a>
+        <a href="#focus">焦点影像</a>
+        <a href="#videos">热门内容</a>
+        <a href="#topics">品牌专题</a>
+        <a href="#creators">创作者</a>
+        <a href="#voices">口碑</a>
+        <a href="#updates">企业动态</a>
+        <a href="#faq">帮助</a>
+      </nav>
+      <div class="hdm-search">
+        <svg class="hdm-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input type="search" id="hdmSearchInput" placeholder="搜索花都动漫作品或创作者" aria-label="站内搜索">
+        <div class="hdm-search-tip" id="hdmSearchTip"></div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hdm-hero">
+    <div class="hdm-hero-inner">
+      <div class="hdm-hero-copy">
+        <span class="hdm-hero-tag"><span class="dot"></span>花都动漫 · 品牌官方网站</span>
+        <h1>花都动漫<span>，</span>让每帧画面都有温度</h1>
+        <p class="hdm-hero-desc">作为持续运营的花都动漫品牌官方影像平台，我们以原创动漫影像为核心，聚合动画短片、幕后记录、城市在地文化与创作者社区，为观众与作者搭建值得信赖的内容生态，让花都动漫的每一帧都被认真看见。</p>
+        <div class="hdm-hero-actions">
+          <a class="hdm-btn hdm-btn--primary" href="#focus">进入焦点影像
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="hdm-btn hdm-btn--ghost" href="#creators">认识创作者</a>
+          <button class="hdm-btn hdm-btn--earth" id="hdmSubmitBtn">我要投稿</button>
+        </div>
+        <div class="hdm-stats">
+          <div class="hdm-stat"><strong data-count="1286">0</strong><span>原创影像作品</span></div>
+          <div class="hdm-stat"><strong data-count="215">0</strong><span>签约创作者</span></div>
+          <div class="hdm-stat"><strong data-count="96">0</strong><span>专题企划持续更新</span></div>
+        </div>
+      </div>
+      <div class="hdm-hero-visual">
+        <div class="hdm-hero-frame">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='460' viewBox='0 0 720 460'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23dfe9df'/%3E%3Cstop offset='1' stop-color='%23b9d0bd'/%3E%3C/linearGradient%3E%3ClinearGradient id='hill' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23235a4e'/%3E%3Cstop offset='1' stop-color='%234d7a63'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='720' height='460' fill='url(%23sky)'/%3E%3Ccircle cx='560' cy='110' r='58' fill='%23f0d9a8'/%3E%3Cpath d='M0 320 Q160 220 340 300 T720 270 V460 H0 Z' fill='url(%23hill)'/%3E%3Cpath d='M0 380 Q180 300 380 360 T720 340 V460 H0 Z' fill='%23173d35' opacity='.85'/%3E%3Cg fill='%23fffdf7'%3E%3Ccircle cx='120' cy='90' r='5'/%3E%3Ccircle cx='190' cy='60' r='3.5'/%3E%3Ccircle cx='260' cy='105' r='4'/%3E%3Ccircle cx='640' cy='70' r='4'/%3E%3C/g%3E%3Cg transform='translate(150 240)'%3E%3Crect x='0' y='40' width='110' height='120' rx='8' fill='%23fffdf7' opacity='.9'/%3E%3Crect x='16' y='58' width='30' height='30' rx='4' fill='%23c8a168'/%3E%3Crect x='60' y='58' width='30' height='30' rx='4' fill='%237ba88f'/%3E%3Crect x='16' y='102' width='30' height='30' rx='4' fill='%237ba88f'/%3E%3Crect x='60' y='102' width='30' height='30' rx='4' fill='%23c8a168'/%3E%3C/g%3E%3Cg transform='translate(420 200)'%3E%3Ccircle cx='50' cy='50' r='50' fill='%23fffdf7' opacity='.92'/%3E%3Cpath d='M38 30l28 20-28 20z' fill='%23235a4e'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫品牌主视觉：绿色山谷间的动漫影像画面">
+        </div>
+        <div class="hdm-floating-card">
+          <span class="avatar">花</span>
+          <div>
+            <b>本周新增 24 支作品</b>
+            <small>来自花都动漫创作者社区</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 深度解析 -->
+  <section class="hdm-section hdm-about" id="about">
+    <div class="hdm-wrap">
+      <span class="hdm-eyebrow">Brand Insight 品牌解析</span>
+      <h2 class="hdm-h2">读懂<em>花都动漫</em>：一个持续生长的原创影像品牌</h2>
+      <p class="hdm-section-lead">从一支短片到一套内容生态，我们想用更长的篇幅，讲清楚花都动漫为什么值得被长期关注。</p>
+      <div class="hdm-about-grid">
+        <div class="hdm-about-text">
+          <p><strong>花都动漫</strong>是一个以原创动漫影像为核心的品牌化内容平台，也是花都这座城市里一批动画作者、影像工作者与生活记录者共同维系的社区。我们相信，动漫不只是屏幕上的画面，它是一种观察世界的方式：一条老街的光影、一间小店的热气、一群人坚持做同一件事的样子，都可以被重新组织成有温度的影像语言。花都动漫官方网站因此承担着三重角色——作品陈列的窗口、创作者交流的客厅、以及城市文化被持续记录的档案库。</p>
+          <p>在内容层面，花都动漫坚持<strong>原创、正版、高清</strong>的基本品质线。所有上架作品均经过内容审核与画质校验，专题企划由品牌编辑团队与签约创作者共同策划，幕后记录与成片同步呈现，让观众不只看到结果，也看到创作的过程。我们的社区不追求数量竞赛，而是希望每一支被推荐的作品，都经得起反复观看。</p>
+          <p>在创作者层面，花都动漫面向全国开放投稿，同时深耕花都本地。我们为新人提供选题建议、剪辑思路与发布节奏上的支持，为成熟作者提供专题合作、线下放映与品牌联名机会。过去几年中，许多作者从一条试水短片开始，逐步形成自己的系列栏目，最终在花都动漫的社区里拥有稳定的观众。这种成长不是偶然，而是平台持续投入内容生态建设的结果。</p>
+          <p>在品牌层面，花都动漫希望成为一个<strong>值得信赖</strong>的名字。我们公开内容标准，公开专题进度，公开社区规则；我们尊重每一位创作者的署名权与收益权；我们也在持续探索动漫影像与城市文化、教育、公益之间的连接。对观众而言，这里是发现好作品的地方；对创作者而言，这里是作品被认真对待的地方；对合作方而言，这里是理解年轻影像语境的入口。</p>
+          <p>未来，花都动漫会继续把重心放在三件事上：一是稳定产出高质量原创内容，二是让社区互动更真实有效，三是把花都的在地故事讲得更远。我们不急于扩张，更在意每一次发布是否对得起观众的期待。也正因如此，花都动漫官网会持续更新企业动态、专题进度与创作者名单，让所有关注我们的人都能清楚看到这个品牌正在发生什么。</p>
+        </div>
+        <div class="hdm-about-cards">
+          <div class="hdm-about-card">
+            <h4>原创优先的内容标准</h4>
+            <p>从脚本、分镜到成片，花都动漫对原创性有明确要求，所有推荐位作品均标注创作团队与授权信息。</p>
+          </div>
+          <div class="hdm-about-card">
+            <h4>社区驱动的创作者生态</h4>
+            <p>投稿、互评、共创、挑战赛，社区不是流量池，而是作者之间彼此打磨作品的关系网络。</p>
+          </div>
+          <div class="hdm-about-card">
+            <h4>扎根花都的在地表达</h4>
+            <p>城市探索、街巷记录、方言动画、公共空间影像，花都动漫持续为本地文化留下可回看的影像档案。</p>
+          </div>
+          <div class="hdm-about-card">
+            <h4>可持续的品牌运营</h4>
+            <p>专题按季度规划，创作者按成长阶段扶持，内容与合作信息通过官方渠道同步发布，节奏稳定透明。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点影像 -->
+  <section class="hdm-section" id="focus">
+    <div class="hdm-wrap">
+      <span class="hdm-eyebrow">Focus 焦点影像</span>
+      <h2 class="hdm-h2">本周<em>花都动漫</em>焦点推荐</h2>
+      <p class="hdm-section-lead">编辑团队与社区共同选出的重点作品，覆盖城市记录、原创动画与创作者幕后。</p>
+      <div class="hdm-focus-grid">
+        <article class="hdm-focus-main">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='760' height='480' viewBox='0 0 760 480'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23173d35'/%3E%3Cstop offset='1' stop-color='%233b6a58'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='760' height='480' fill='url(%23g1)'/%3E%3Cg opacity='.5' stroke='%23c8a168' stroke-width='2' fill='none'%3E%3Ccircle cx='380' cy='240' r='150'/%3E%3Ccircle cx='380' cy='240' r='105'/%3E%3Ccircle cx='380' cy='240' r='62'/%3E%3C/g%3E%3Cpath d='M0 400 Q190 320 380 380 T760 350 V480 H0 Z' fill='%23102620' opacity='.7'/%3E%3Cg fill='%23f0d9a8'%3E%3Ccircle cx='150' cy='110' r='3'/%3E%3Ccircle cx='600' cy='90' r='4'/%3E%3Ccircle cx='680' cy='180' r='2.5'/%3E%3C/g%3E%3Cg transform='translate(320 190)'%3E%3Ccircle cx='60' cy='60' r='56' fill='%23fffdf7' opacity='.94'/%3E%3Cpath d='M46 36l32 24-32 24z' fill='%23235a4e'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫焦点作品《巷口的光》城市夜景封面">
+          <div class="hdm-focus-main-content">
+            <span class="tag">品牌企划 · 首发</span>
+            <h3>《巷口的光》：用动画重访花都老城区的十二个傍晚</h3>
+            <p>一支历时九个月完成的城市动画短片，记录骑楼、糖水铺与放学路上的日常光色。</p>
+            <div class="hdm-video-meta" style="border:none;padding:0;color:#e8e2cf">
+              <span class="hdm-video-author"><span class="hdm-mini-avatar" style="background:#c8a168;color:#173d35">巷</span>巷口工作室</span>
+              <span>2026-11-15 发布 · 12.6万 次观看</span>
+            </div>
+          </div>
+        </article>
+        <div class="hdm-focus-side">
+          <article class="hdm-focus-item">
+            <div class="hdm-focus-thumb">
+              <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%23e7d8b8'/%3E%3Ccircle cx='250' cy='60' r='34' fill='%23c8a168'/%3E%3Cpath d='M0 150 Q90 100 170 140 T320 130 V200 H0Z' fill='%23235a4e'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫短片《糖水铺的夏天》暖色插画封面">
+            </div>
+            <div>
+              <h4>《糖水铺的夏天》手绘动画制作全记录</h4>
+              <small>幕后记录 · 8.2万 次观看</small>
+            </div>
+          </article>
+          <article class="hdm-focus-item">
+            <div class="hdm-focus-thumb">
+              <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%23cddbe0'/%3E%3Crect x='40' y='60' width='70' height='110' rx='6' fill='%234d7a63'/%3E%3Crect x='130' y='40' width='60' height='130' rx='6' fill='%23235a4e'/%3E%3Crect x='210' y='80' width='70' height='90' rx='6' fill='%23c8a168'/%3E%3Ccircle cx='80' cy='40' r='16' fill='%23fffdf7'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫创作者访谈节目城市天际线封面">
+            </div>
+            <div>
+              <h4>创作者访谈：从分镜本到放映厅的三年</h4>
+              <small>人物访谈 · 5.4万 次观看</small>
+            </div>
+          </article>
+          <article class="hdm-focus-item">
+            <div class="hdm-focus-thumb">
+              <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='200' viewBox='0 0 320 200'%3E%3Crect width='320' height='200' fill='%23f3e9d2'/%3E%3Cg stroke='%23235a4e' stroke-width='3' fill='none'%3E%3Cpath d='M40 150 L90 80 L140 130 L190 60 L250 140'/%3E%3C/g%3E%3Cg fill='%237ba88f'%3E%3Ccircle cx='90' cy='80' r='8'/%3E%3Ccircle cx='190' cy='60' r='8'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" alt="花都动漫专题企划成长路径折线插画封面">
+            </div>
+            <div>
+              <h4>新人作者的第一支动画，应该怎么开始</h4>
+              <small>教程干货 · 6.8万 次观看</small>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门视频流 -->
+  <section class="hdm-section hdm-section--tight" id="videos">
+    <div class="hdm-wrap">
+      <span class="hdm-eyebrow">Community Stream 热门内容</span>
+      <h2 class="hdm-h2">社区正在看的<em>花都动漫</em>作品</h2>
+      <p class="hdm-section-lead">来自创作者社区的近期热作，覆盖动画短片、城市探索、手作记录与知识科普。</p>
+      <div class="hdm-video-grid">
+
+        <article class="hdm-video-card" data-title="花都动漫 骑楼下的动画课">
+          <div class="hdm-video-cover">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='270' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23dfe9df'/%3E%3Crect x='30' y='90' width='150' height='150' fill='%23235a4e'/%3E%3Crect x='200' y='60' width='120' height='180' fill='%234d7a63'/%3E%3Crect x='340' y='110' width='110' height='130' fill='%23c8a168'/%3E%3Cg fill='%23fffdf7'%3E%3Crect x='50' y='110' width='24' height='30'/%3E%3Crect x='90' y='110' width='24' height='30'/%3E%3Crect x='220' y='88' width='24' height='30'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫作品《骑楼下的动画课》建筑插画封面">
+            <span class="hdm-video-tag">城市探索</span>
+            <span class="hdm-video-duration">08:42</span>
+            <span class="hdm-play"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,253,247,.9)"/><path d="M10 8l6 4-6 4V8z" fill="#235a4e"/></svg></span>
+          </div>
+          <div class="hdm-video-body">
+            <h3>骑楼下的动画课：把花都老街画进分镜里</h3>
+            <p>一支带学生走街串巷的动画实践课，从取景到上色，完整保留创作现场的犹豫与惊喜。</p>
+            <div class="hdm-video-meta">
+              <span class="hdm-video-author"><span class="hdm-mini-avatar" style="background:#235a4e">青</span>青柠动画社</span>
+              <div class="hdm-video-actions">
+                <button class="hdm-icon-btn hdm-like-btn" aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2 4 4 0 017 2c0 5.5-7 10-7 10z"/></svg>
+                  <span class="hdm-like-count">1.2k</span>
+                </button>
+                <button class="hdm-icon-btn hdm-save-btn" aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4V4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hdm-video-card" data-title="花都动漫 糖水铺手绘动画">
+          <div class="hdm-video-cover">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='270' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23f0d9a8'/%3E%3Ccircle cx='390' cy='70' r='40' fill='%23e2a86b'/%3E%3Crect x='40' y='120' width='180' height='110' rx='8' fill='%23fffdf7'/%3E%3Cpath d='M40 140h180' stroke='%23c8a168' stroke-width='6'/%3E%3Ccircle cx='90' cy='185' r='18' fill='%23c8a168'/%3E%3Ccircle cx='140' cy='185' r='18' fill='%237ba88f'/%3E%3Ccircle cx='190' cy='185' r='18' fill='%23c0563a'/%3E%3C/svg%3E" alt="花都动漫作品《糖水铺的夏天》甜品插画封面">
+            <span class="hdm-video-tag">原创动画</span>
+            <span class="hdm-video-duration">06:15</span>
+            <span class="hdm-play"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,253,247,.9)"/><path d="M10 8l6 4-6 4V8z" fill="#235a4e"/></svg></span>
+          </div>
+          <div class="hdm-video-body">
+            <h3>《糖水铺的夏天》：一碗绿豆沙的十种画法</h3>
+            <p>手绘动画作者把童年记忆里的糖水铺拆解成色块与线条，附完整制作思路分享。</p>
+            <div class="hdm-video-meta">
+              <span class="hdm-video-author"><span class="hdm-mini-avatar" style="background:#c8a168;color:#173d35">糖</span>阿糖画室</span>
+              <div class="hdm-video-actions">
+                <button class="hdm-icon-btn hdm-like-btn" aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2 4 4 0 017 2c0 5.5-7 10-7 10z"/></svg>
+                  <span class="hdm-like-count">986</span>
+                </button>
+                <button class="hdm-icon-btn hdm-save-btn" aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4V4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hdm-video-card" data-title="花都动漫 分镜脚本工作流">
+          <div class="hdm-video-cover">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='270' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23cddbe0'/%3E%3Crect x='30' y='30' width='130' height='90' rx='6' fill='%23fffdf7' stroke='%23235a4e' stroke-width='3'/%3E%3Crect x='180' y='30' width='130' height='90' rx='6' fill='%23fffdf7' stroke='%23235a4e' stroke-width='3'/%3E%3Crect x='330' y='30' width='120' height='90' rx='6' fill='%23fffdf7' stroke='%23235a4e' stroke-width='3'/%3E%3Crect x='30' y='145' width='130' height='90' rx='6' fill='%23fffdf7' stroke='%23235a4e' stroke-width='3'/%3E%3Crect x='180' y='145' width='130' height='90' rx='6' fill='%23fffdf7' stroke='%23235a4e' stroke-width='3'/%3E%3Crect x='330' y='145' width='120' height='90' rx='6' fill='%237ba88f'/%3E%3C/svg%3E" alt="花都动漫作品《分镜脚本工作流》脚本格子封面">
+            <span class="hdm-video-tag">教程干货</span>
+            <span class="hdm-video-duration">14:20</span>
+            <span class="hdm-play"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,253,247,.9)"/><path d="M10 8l6 4-6 4V8z" fill="#235a4e"/></svg></span>
+          </div>
+          <div class="hdm-video-body">
+            <h3>从一句话到一支片：花都动漫作者的分镜脚本工作流</h3>
+            <p>三位作者公开各自的分镜模板与排版习惯，讨论如何让一个想法稳定落地为成片。</p>
+            <div class="hdm-video-meta">
+              <span class="hdm-video-author"><span class="hdm-mini-avatar" style="background:#4d7a63">镜</span>分镜研究所</span>
+              <div class="hdm-video-actions">
+                <button class="hdm-icon-btn hdm-like-btn" aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2 4 4 0 017 2c0 5.5-7 10-7 10z"/></svg>
+                  <span class="hdm-like-count">2.3k</span>
+                </button>
+                <button class="hdm-icon-btn hdm-save-btn" aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4V4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hdm-video-card" data-title="花都动漫 夜间城市光轨">
+          <div class="hdm-video-cover">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='270' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23173d35'/%3E%3Cg stroke='%23c8a168' stroke-width='3' fill='none'%3E%3Cpath d='M0 210 Q120 150 240 200 T480 180'/%3E%3Cpath d='M0 240 Q140 190 260 230 T480 215' opacity='.6'/%3E%3C/g%3E%3Cg fill='%23fffdf7'%3E%3Ccircle cx='80' cy='70' r='2.5'/%3E%3Ccircle cx='210' cy='50' r='3'/%3E%3Ccircle cx='360' cy='85' r='2.5'/%3E%3Ccircle cx='430' cy='45' r='2'/%3E%3C/g%3E%3Crect x='170' y='110' width='140' height='80' rx='8' fill='%23235a4e'/%3E%3C/svg%3E" alt="花都动漫作品《夜间城市光轨》夜景光绘封面">
+            <span class="hdm-video-tag">治愈影像</span>
+            <span class="hdm-video-duration">05:08</span>
+            <span class="hdm-play"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,253,247,.9)"/><path d="M10 8l6 4-6 4V8z" fill="#235a4e"/></svg></span>
+          </div>
+          <div class="hdm-video-body">
+            <h3>夜间城市光轨：把花都的天桥拍成动画背景</h3>
+            <p>实拍与动画合成实验，作者用光轨素材搭建出一段安静的城市夜行叙事。</p>
+            <div class="hdm-video-meta">
+              <span class="hdm-video-author"><span class="hdm-mini-avatar" style="background:#173d35">夜</span>夜行记录</span>
+              <div class="hdm-video-actions">
+                <button class="hdm-icon-btn hdm-like-btn" aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2 4 4 0 017 2c0 5.5-7 10-7 10z"/></svg>
+                  <span class="hdm-like-count">764</span>
+                </button>
+                <button class="hdm-icon-btn hdm-save-btn" aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4V4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hdm-video-card" data-title="花都动漫 手作定格动画">
+          <div class="hdm-video-cover">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='270' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23e7d8b8'/%3E%3Ccircle cx='120' cy='110' r='52' fill='%23c8a168'/%3E%3Ccircle cx='120' cy='110' r='30' fill='%23fffdf7'/%3E%3Crect x='220' y='60' width='90' height='150' rx='8' fill='%23235a4e'/%3E%3Crect x='336' y='100' width='110' height='110' rx='8' fill='%237ba88f'/%3E%3Cg fill='%23c0563a'%3E%3Ccircle cx='300' cy='100' r='6'/%3E%3Ccircle cx='370' cy='140' r='6'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫作品《黏土定格动画》手作物件封面">
+            <span class="hdm-video-tag">手作DIY</span>
+            <span class="hdm-video-duration">11:36</span>
+            <span class="hdm-play"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,253,247,.9)"/><path d="M10 8l6 4-6 4V8z" fill="#235a4e"/></svg></span>
+          </div>
+          <div class="hdm-video-body">
+            <h3>用黏土做一支定格动画：材料、灯光与逐帧节奏</h3>
+            <p>从角色塑形到拍摄台搭建，完整展示小型定格动画的可行路径，适合零基础观众入门。</p>
+            <div class="hdm-video-meta">
+              <span class="hdm-video-author"><span class="hdm-mini-avatar" style="background:#c0563a">黏</span>黏土频道</span>
+              <div class="hdm-video-actions">
+                <button class="hdm-icon-btn hdm-like-btn" aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2 4 4 0 017 2c0 5.5-7 10-7 10z"/></svg>
+                  <span class="hdm-like-count">1.5k</span>
+                </button>
+                <button class="hdm-icon-btn hdm-save-btn" aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4V4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="hdm-video-card" data-title="花都动漫 创作者对谈现场">
+          <div class="hdm-video-cover">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='270' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23f3e9d2'/%3E%3Crect x='50' y='60' width='170' height='110' rx='10' fill='%23235a4e'/%3E%3Crect x='250' y='60' width='170' height='110' rx='10' fill='%237ba88f'/%3E%3Cpath d='M80 190h120M280 190h120' stroke='%23c8a168' stroke-width='8' stroke-linecap='round'/%3E%3Cg fill='%23fffdf7'%3E%3Ccircle cx='110' cy='110' r='18'/%3E%3Ccircle cx='310' cy='110' r='18'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫作品《创作者对谈现场》双人访谈封面">
+            <span class="hdm-video-tag">人物访谈</span>
+            <span class="hdm-video-duration">22:04</span>
+            <span class="hdm-play"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(255,253,247,.9)"/><path d="M10 8l6 4-6 4V8z" fill="#235a4e"/></svg></span>
+          </div>
+          <div class="hdm-video-body">
+            <h3>两位花都动漫作者谈「被看见」之前的那些年</h3>
+            <p>一场没有主持人的对谈，聊投稿心态、风格焦虑与社区反馈对创作的真实影响。</p>
+            <div class="hdm-video-meta">
+              <span class="hdm-video-author"><span class="hdm-mini-avatar" style="background:#235a4e">谈</span>对谈栏目组</span>
+              <div class="hdm-video-actions">
+                <button class="hdm-icon-btn hdm-like-btn" aria-label="点赞">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20s-7-4.5-7-10a4 4 0 017-2 4 4 0 017 2c0 5.5-7 10-7 10z"/></svg>
+                  <span class="hdm-like-count">3.1k</span>
+                </button>
+                <button class="hdm-icon-btn hdm-save-btn" aria-label="收藏">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v17l-6-4-6 4V4z"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="hdm-section hdm-topics" id="topics">
+    <div class="hdm-wrap">
+      <span class="hdm-eyebrow">Series 品牌专题</span>
+      <h2 class="hdm-h2">花都动漫<em>专题企划</em>持续更新中</h2>
+      <p class="hdm-section-lead">专题是花都动漫的内容骨架：按季度策划、按主题聚合，让好作品被系统性地看见。</p>
+      <div class="hdm-topic-grid">
+        <article class="hdm-topic-card">
+          <div class="hdm-topic-cover">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='440' height='240' viewBox='0 0 440 240'%3E%3Crect width='440' height='240' fill='%232b5a4b'/%3E%3Cpath d='M0 180 Q110 120 220 170 T440 150 V240H0Z' fill='%23c8a168' opacity='.75'/%3E%3Cg stroke='%23f3ecda' stroke-width='2' fill='none' opacity='.7'%3E%3Ccircle cx='220' cy='90' r='46'/%3E%3Ccircle cx='220' cy='90' r='28'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫专题《巷口的光》城市傍晚封面">
+          </div>
+          <div class="hdm-topic-body">
+            <h3>《巷口的光》城市动画计划</h3>
+            <p>十二支短片，十二个花都傍晚。记录骑楼、天桥、菜市场与放学路上的光。</p>
+            <span class="hdm-topic-status">更新至 第 6 支 · 持续连载</span>
+          </div>
+        </article>
+        <article class="hdm-topic-card">
+          <div class="hdm-topic-cover">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='440' height='240' viewBox='0 0 440 240'%3E%3Crect width='440' height='240' fill='%23e7d8b8'/%3E%3Cg stroke='%23235a4e' stroke-width='3' fill='none'%3E%3Cpath d='M40 200 L120 100 L200 160 L290 70 L400 180'/%3E%3C/g%3E%3Cg fill='%23c0563a'%3E%3Ccircle cx='120' cy='100' r='9'/%3E%3Ccircle cx='290' cy='70' r='9'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫专题《新人第一支动画》成长路径封面">
+          </div>
+          <div class="hdm-topic-body">
+            <h3>新人第一支动画成长计划</h3>
+            <p>从选题、分镜到发布节奏，为首次投稿的作者提供一整套陪跑式内容支持。</p>
+            <span class="hdm-topic-status">2026 冬季招募中 · 报名开放</span>
+          </div>
+        </article>
+        <article class="hdm-topic-card">
+          <div class="hdm-topic-cover">
+            <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='440' height='240' viewBox='0 0 440 240'%3E%3Crect width='440' height='240' fill='%23cddbe0'/%3E%3Crect x='40' y='60' width='110' height='140' rx='8' fill='%23235a4e'/%3E%3Crect x='170' y='40' width='100' height='160' rx='8' fill='%234d7a63'/%3E%3Crect x='290' y='80' width='110' height='120' rx='8' fill='%23c8a168'/%3E%3Cg fill='%23fffdf7'%3E%3Crect x='60' y='84' width='20' height='24'/%3E%3Crect x='190' y='64' width='20' height='24'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫专题《城市坐标》街巷建筑封面">
+          </div>
+          <div class="hdm-topic-body">
+            <h3>城市坐标：花都取景地图</h3>
+            <p>把动画里出现过的街巷、公园与老铺标在地图上，让影像与真实空间互相印证。</p>
+            <span class="hdm-topic-status">已收录 28 个取景地 · 每月更新</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="hdm-section" id="creators">
+    <div class="hdm-wrap">
+      <span class="hdm-eyebrow">Creators 创作者矩阵</span>
+      <h2 class="hdm-h2">与花都动漫一起成长的<em>创作者</em></h2>
+      <p class="hdm-section-lead">他们来自动画、插画、纪录片与生活记录等不同方向，共同构成花都动漫的社区日常。</p>
+      <div class="hdm-creators-grid">
+        <article class="hdm-creator-card">
+          <div class="hdm-creator-avatar" style="background:linear-gradient(135deg,#235a4e,#4d7a63)">青</div>
+          <h3>青柠动画社</h3>
+          <div class="hdm-creator-field">原创动画 · 城市记录</div>
+          <p>用动画重访花都街巷，擅长把建筑与光影转化为有呼吸感的画面。</p>
+          <div class="hdm-creator-stats">
+            <div><b>86</b>作品</div>
+            <div><b>4.2万</b>粉丝</div>
+          </div>
+        </article>
+        <article class="hdm-creator-card">
+          <div class="hdm-creator-avatar" style="background:linear-gradient(135deg,#c8a168,#e2bf87);color:#173d35">糖</div>
+          <h3>阿糖画室</h3>
+          <div class="hdm-creator-field">手绘动画 · 治愈影像</div>
+          <p>偏爱甜食、旧物与夏天，作品色彩柔软，常附完整手绘过程分享。</p>
+          <div class="hdm-creator-stats">
+            <div><b>64</b>作品</div>
+            <div><b>3.7万</b>粉丝</div>
+          </div>
+        </article>
+        <article class="hdm-creator-card">
+          <div class="hdm-creator-avatar" style="background:linear-gradient(135deg,#4d7a63,#7ba88f)">镜</div>
+          <h3>分镜研究所</h3>
+          <div class="hdm-creator-field">教程干货 · 创作幕后</div>
+          <p>拆解分镜与剪辑方法，内容偏实操，是社区新人常回看的参考栏目。</p>
+          <div class="hdm-creator-stats">
+            <div><b>112</b>作品</div>
+            <div><b>6.8万</b>粉丝</div>
+          </div>
+        </article>
+        <article class="hdm-creator-card">
+          <div class="hdm-creator-avatar" style="background:linear-gradient(135deg,#173d35,#2f5247)">夜</div>
+          <h3>夜行记录</h3>
+          <div class="hdm-creator-field">实拍合成 · 夜景实验</div>
+          <p>专注夜间城市影像，擅长光轨与动画合成，风格安静克制。</p>
+          <div class="hdm-creator-stats">
+            <div><b>48</b>作品</div>
+            <div><b>2.5万</b>粉丝</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 影像墙 -->
+  <section class="hdm-section hdm-section--tight">
+    <div class="hdm-wrap">
+      <span class="hdm-eyebrow">Gallery 社区影像墙</span>
+      <h2 class="hdm-h2">花都动漫<em>社区影像墙</em></h2>
+      <p class="hdm-section-lead">来自创作者的静帧与概念图，是花都动漫内容生态里同样重要的一部分。</p>
+      <div class="hdm-wall-grid">
+        <div class="hdm-wall-item hdm-wall-item--big" data-label="《巷口的光》概念主视觉">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='520' height='360' viewBox='0 0 520 360'%3E%3Crect width='520' height='360' fill='%23173d35'/%3E%3Ccircle cx='400' cy='80' r='46' fill='%23f0d9a8'/%3E%3Cpath d='M0 280 Q130 210 260 260 T520 240 V360H0Z' fill='%23235a4e'/%3E%3Cg fill='%23c8a168' opacity='.85'%3E%3Crect x='90' y='170' width='16' height='24'/%3E%3Crect x='130' y='150' width='16' height='24'/%3E%3Crect x='170' y='180' width='16' height='24'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫社区影像墙作品《巷口的光》概念主视觉">
+        </div>
+        <div class="hdm-wall-item hdm-wall-item--wide" data-label="糖水铺夏天色稿">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='180' viewBox='0 0 360 180'%3E%3Crect width='360' height='180' fill='%23f0d9a8'/%3E%3Ccircle cx='70' cy='90' r='36' fill='%23c8a168'/%3E%3Ccircle cx='160' cy='90' r='36' fill='%23c0563a'/%3E%3Ccircle cx='250' cy='90' r='36' fill='%237ba88f'/%3E%3Ccircle cx='330' cy='90' r='20' fill='%23235a4e' opacity='.8'/%3E%3C/svg%3E" alt="花都动漫社区影像墙作品《糖水铺的夏天》色稿">
+        </div>
+        <div class="hdm-wall-item" data-label="夜间光轨实验">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180' viewBox='0 0 260 180'%3E%3Crect width='260' height='180' fill='%23102620'/%3E%3Cpath d='M0 140 Q70 100 140 130 T260 120' stroke='%23c8a168' stroke-width='3' fill='none'/%3E%3Cg fill='%23fffdf7' opacity='.8'%3E%3Ccircle cx='60' cy='46' r='2'/%3E%3Ccircle cx='170' cy='60' r='2.5'/%3E%3Ccircle cx='220' cy='36' r='1.6'/%3E%3C/g%3E%3C/svg%3E" alt="花都动漫社区影像墙作品《夜间光轨实验》">
+        </div>
+        <div class="hdm-wall-item hdm-wall-item--tall" data-label="骑楼建筑设定">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='360' viewBox='0 0 260 360'%3E%3Crect width='260' height='360' fill='%23dfe9df'/%3E%3Crect x='40' y='80' width='180' height='240' fill='%23235a4e'/%3E%3Cg fill='%23fffdf7'%3E%3Crect x='66' y='110' width='30' height='40'/%3E%3Crect x='116' y='110' width='30' height='40'/%3E%3Crect x='166' y='110' width='30' height='40'/%3E%3Crect x='66' y='180' width='30' height='40'/%3E%3Crect x='116' y='180' width='30' height='40'/%3E%3Crect x='166' y='180' width='30' height='40'/%3E%3C/g%3E%3Crect x='40' y='60' width='180' height='20' fill='%23c8a168'/%3E%3C/svg%3E" alt="花都动漫社区影像墙作品《骑楼建筑设定》">
+        </div>
+        <div class="hdm-wall-item" data-label="黏土角色塑形">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='180' viewBox='0 0 260 180'%3E%3Crect width='260' height='180' fill='%23e7d8b8'/%3E%3Ccircle cx='90' cy='90' r='42' fill='%23c0563a'/%3E%3Ccircle cx='90' cy='90' r='24' fill='%23fffdf7'/%3E%3Ccircle cx='180' cy='90' r='42' fill='%23235a4e'/%3E%3Ccircle cx='180' cy='90' r='24' fill='%23f0d9a8'/%3E%3C/svg%3E" alt="花都动漫社区影像墙作品《黏土角色塑形》">
+        </div>
+        <div class="hdm-wall-item hdm-wall-item--wide" data-label="创作者访谈现场">
+          <img src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='360' height='180' viewBox='0 0 360 180'%3E%3Crect width='360' height='180' fill='%23f3e9d2'/%3E%3Crect x='40' y='40' width='120' height='100' rx='8' fill='%23235a4e'/%3E%3Crect x='200' y='40' width='120' height='100' rx='8' fill='%237ba88f'/%3E%3Cpath d='M60 160h80M220 160h80' stroke='%23c8a168' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E" alt="花都动漫社区影像墙作品《创作者访谈现场》">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户声音 -->
+  <section class="hdm-section hdm-voices" id="voices">
+    <div class="hdm-wrap">
+      <span class="hdm-eyebrow">Voices 社区口碑</span>
+      <h2 class="hdm-h2">观众与作者眼中的<em>花都动漫</em></h2>
+      <p class="hdm-section-lead">真实、具体、各有侧重的反馈，是花都动漫持续优化内容与社区体验的重要依据。</p>
+      <div class="hdm-voice-grid">
+        <div class="hdm-voice-card">
+          <div class="hdm-voice-quote">&ldquo;</div>
+          <p>第一次在花都动漫投稿，编辑给了很具体的分镜建议，而不是一句「加油」。这种认真让我愿意继续做下去。</p>
+          <div class="hdm-voice-person">
+            <span class="hdm-mini-avatar" style="background:#4d7a63">林</span>
+            <div><b>林小满</b><small>动画作者 · 加入 1 年</small></div>
+          </div>
+        </div>
+        <div class="hdm-voice-card">
+          <div class="hdm-voice-quote">&ldquo;</div>
+          <p>专题页做得很扎实，一支短片背后常配着幕后和取景地图，看完会想出门走走。</p>
+          <div class="hdm-voice-person">
+            <span class="hdm-mini-avatar" style="background:#c8a168;color:#173d35">周</span>
+            <div><b>周见山</b><small>观众 · 花都本地</small></div>
+          </div>
+        </div>
+        <div class="hdm-voice-card">
+          <div class="hdm-voice-quote">&ldquo;</div>
+          <p>社区氛围比较克制，评论区讨论作品本身的居多，对新人友好，不会有很强的比较压力。</p>
+          <div class="hdm-voice-person">
+            <span class="hdm-mini-avatar" style="background:#235a4e">陈</span>
+            <div><b>陈默</b><small>插画师 · 社区成员</small></div>
+          </div>
+        </div>
+        <div class="hdm-voice-card">
+          <div class="hdm-voice-quote">&ldquo;</div>
+          <p>《巷口的光》让我想起小时候住的那条街。花都动漫在记录城市这件事上，是真的有耐心。</p>
+          <div class="hdm-voice-person">
+            <span class="hdm-mini-avatar" style="background:#c0563a">何</span>
+            <div><b>何阿姨</b><small>观众 · 花都老街坊</small></div>
+          </div>
+        </div>
+        <div class="hdm-voice-card">
+          <div class="hdm-voice-quote">&ldquo;</div>
+          <p>作为合作方，我们看中的是花都动漫对原创的坚持和稳定的更新节奏，沟通也很透明。</p>
+          <div class="hdm-voice-person">
+            <span class="hdm-mini-avatar" style="background:#173d35">木</span>
+            <div><b>木野文化</b><small>品牌合作方</small></div>
+          </div>
+        </div>
+        <div class="hdm-voice-card">
+          <div class="hdm-voice-quote">&ldquo;</div>
+          <p>投稿指南写得很清楚，第一次投稿就知道要准备什么，节省了很多来回沟通的时间。</p>
+          <div class="hdm-voice-person">
+            <span class="hdm-mini-avatar" style="background:#7ba88f;color:#173d35">苏</span>
+            <div><b>苏打水</b><small>学生创作者</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 动态 + FAQ -->
+  <section class="hdm-section" id="updates">
+    <div class="hdm-wrap">
+      <div class="hdm-split">
+        <div>
+          <span class="hdm-eyebrow">Updates 企业动态</span>
+          <h2 class="hdm-h2"><em>花都动漫</em>近期动态</h2>
+          <div class="hdm-timeline" style="margin-top:26px">
+            <div class="hdm-timeline-item">
+              <time>2026-11-15</time>
+              <h4>《巷口的光》第六支短片正式上线</h4>
+              <p>本支短片聚焦菜市场清晨，配套幕后手记与取景地图同步更新。</p>
+            </div>
+            <div class="hdm-timeline-item">
+              <time>2026-11-08</time>
+              <h4>冬季创作者招募开启报名</h4>
+              <p>面向花都本地及全国动漫影像作者，提供分镜指导与专题合作机会。</p>
+            </div>
+            <div class="hdm-timeline-item">
+              <time>2026-10-30</time>
+              <h4>社区投稿功能升级</h4>
+              <p>新增分镜脚本上传、创作挑战投票与作品互评标签，投稿流程更顺畅。</p>
+            </div>
+            <div class="hdm-timeline-item">
+              <time>2026-10-18</time>
+              <h4>年度线下放映会顺利举办</h4>
+              <p>十二位创作者到场交流，现场放映六支社区精选作品并开放观众提问。</p>
+            </div>
+          </div>
+        </div>
+        <div id="faq">
+          <span class="hdm-eyebrow">FAQ 帮助中心</span>
+          <h2 class="hdm-h2">关于<em>花都动漫</em>的常见问题</h2>
+          <div class="hdm-faq" style="margin-top:26px">
+            <details open>
+              <summary>如何向花都动漫投稿自己的作品？</summary>
+              <p>点击页面中的「我要投稿」按钮填写基本信息，上传作品文件或观看链接即可。编辑部会在五个工作日内给出内容与画质方面的反馈。</p>
+            </details>
+            <details>
+              <summary>投稿作品需要满足哪些基本要求？</summary>
+              <p>作品需为原创或已获得完整授权，画质建议 1080P 及以上，附上创作说明与署名信息。涉及他人素材的部分需标明来源与授权情况。</p>
+            </details>
+            <details>
+              <summary>花都动漫的专题企划多久更新一次？</summary>
+              <p>专题按季度规划，常规专题每月至少更新一次。重大企划会在公告条与企业动态中提前公布进度。</p>
+            </details>
+            <details>
+              <summary>社区里的点赞和收藏有什么用？</summary>
+              <p>点赞与收藏会影响作品在社区热门内容中的展示权重，也会作为编辑推荐与专题选片的参考维度之一。</p>
+            </details>
+            <details>
+              <summary>可以申请成为花都动漫的签约创作者吗？</summary>
+              <p>可以。持续在社区发布作品并参与互动的作者，会收到签约邀请；也可通过联系页面的合作邮箱主动提交申请。</p>
+            </details>
+            <details>
+              <summary>品牌或机构如何与花都动漫合作？</summary>
+              <p>我们开放专题共创、线下放映、内容定制与联合出品等合作形式，可通过页面底部的联系方式与我们取得联系。</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 投稿 CTA -->
+  <section class="hdm-section hdm-section--tight">
+    <div class="hdm-wrap">
+      <div class="hdm-cta">
+        <div>
+          <h3>把你的作品带进花都动漫社区</h3>
+          <p>无论是一支完整的动画短片，还是一段尚未成形的影像实验，我们都愿意认真看完，并给出具体反馈。</p>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap">
+          <button class="hdm-btn hdm-btn--earth" id="hdmSubmitBtn2">投稿入口</button>
+          <button class="hdm-btn hdm-btn--ghost" id="hdmCopyLinkBtn" style="border-color:#f3ecda;color:#f3ecda">复制官网链接</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="hdm-footer">
+  <div class="hdm-wrap">
+    <div class="hdm-footer-grid">
+      <div>
+        <div class="hdm-footer-brand">
+          <span class="hdm-logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5l11 7-11 7V5z" fill="currentColor"/></svg>
+          </span>
+          <strong>花都动漫</strong>
+        </div>
+        <p>花都动漫官方网站，持续运营的原创动漫影像品牌平台。我们以原创、正版、高清为基本标准，构建创作者与观众之间的内容生态，让每一帧画面都被认真对待。</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#focus">焦点影像</a></li>
+          <li><a href="#videos">热门内容</a></li>
+          <li><a href="#topics">品牌专题</a></li>
+          <li><a href="#creators">创作者矩阵</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于我们</h4>
+        <ul>
+          <li><a href="#about">品牌解析</a></li>
+          <li><a href="#updates">企业动态</a></li>
+          <li><a href="#faq">帮助中心</a></li>
+          <li><a href="#voices">社区口碑</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系与合作</h4>
+        <ul>
+          <li>合作邮箱：hello@huaduanime.example</li>
+          <li>投稿咨询：submit@huaduanime.example</li>
+          <li>线下地址：花都区创意影像园 3 栋</li>
+          <li>工作时间：周一至周五 10:00–18:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hdm-footer-bottom">
+      <span>© 2026 花都动漫官方网站 · 版权所有 · 持续运营中</span>
+      <span>原创内容受版权保护 · 转载请注明来源 · 品牌信息以官方发布为准</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 通用弹窗 -->
+<div class="hdm-modal-mask" id="hdmModalMask">
+  <div class="hdm-modal hdm-modal-box">
+    <button class="hdm-modal-close" id="hdmModalClose" aria-label="关闭弹窗">&times;</button>
+    <h3 id="hdmModalTitle">投稿入口</h3>
+    <p id="hdmModalDesc">请填写以下信息，花都动漫编辑部会尽快与你联系。</p>
+    <input type="text" id="hdmModalName" placeholder="你的称呼 / 创作者名">
+    <input type="email" id="hdmModalEmail" placeholder="联系邮箱">
+    <textarea id="hdmModalMsg" rows="3" placeholder="简单介绍一下你的作品或合作需求"></textarea>
+    <div class="hdm-modal-actions">
+      <button class="hdm-btn hdm-btn--ghost" id="hdmModalCancel">取消</button>
+      <button class="hdm-btn hdm-btn--primary" id="hdmModalConfirm">提交</button>
+    </div>
+  </div>
+</div>
+
+<div class="hdm-toast" id="hdmToast">已复制</div>
+
+<button class="hdm-backtop" id="hdmBackTop" aria-label="回到顶部">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ===== 移动端导航折叠 ===== */
+  var menuToggle = document.getElementById('hdmMenuToggle');
+  var nav = document.getElementById('hdmNav');
+  if(menuToggle && nav){
+    menuToggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  /* ===== 搜索前端反馈 ===== */
+  var searchInput = document.getElementById('hdmSearchInput');
+  var searchTip = document.getElementById('hdmSearchTip');
+  var searchIndex = [
+    '巷口的光', '糖水铺的夏天', '分镜脚本工作流', '夜间城市光轨',
+    '黏土定格动画', '创作者对谈现场', '青柠动画社', '阿糖画室',
+    '分镜研究所', '夜行记录', '城市取景地图', '新人第一支动画'
+  ];
+  function renderTip(kw){
+    if(!searchTip) return;
+    if(!kw){
+      searchTip.classList.remove('is-show');
+      searchTip.innerHTML = '';
+      return;
+    }
+    var hits = searchIndex.filter(function(item){
+      return item.toLowerCase().indexOf(kw.toLowerCase()) > -1;
+    });
+    if(hits.length){
+      searchTip.innerHTML = '在花都动漫中找到 ' + hits.length + ' 条相关结果：' +
+        hits.slice(0,4).map(function(h){ return '「' + h + '」'; }).join('、');
+    }else{
+      searchTip.innerHTML = '暂时没有匹配到「' + kw + '」，可尝试搜索「巷口的光」或「分镜」等关键词。';
+    }
+    searchTip.classList.add('is-show');
+  }
+  if(searchInput){
+    searchInput.addEventListener('input', function(){
+      renderTip(searchInput.value.trim());
+    });
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        e.preventDefault();
+        var kw = searchInput.value.trim();
+        if(kw){
+          showToast('正在花都动漫社区中查找「' + kw + '」');
+        }
+      }
+    });
+    document.addEventListener('click', function(e){
+      if(searchTip && !searchTip.contains(e.target) && e.target !== searchInput){
+        searchTip.classList.remove('is-show');
+      }
+    });
+  }
+
+  /* ===== 点赞 / 收藏 ===== */
+  document.querySelectorAll('.hdm-like-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var countEl = btn.querySelector('.hdm-like-count');
+      var liked = btn.classList.toggle('is-liked');
+      if(countEl){
+        var raw = countEl.textContent.trim();
+        var isK = raw.indexOf('k') > -1;
+        var num = parseFloat(raw) || 0;
+        num = liked ? num + 0.1 : Math.max(0, num - 0.1);
+        countEl.textContent = isK ? (num.toFixed(1) + 'k') : Math.round(num);
+      }
+      showToast(liked ? '已点赞这篇作品' : '已取消点赞');
+    });
+  });
+  document.querySelectorAll('.hdm-save-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var saved = btn.classList.toggle('is-saved');
+      var svg = btn.querySelector('svg');
+      if(svg){
+        svg.setAttribute('fill', saved ? 'currentColor' : 'none');
+      }
+      showToast(saved ? '已收藏到我的花都动漫清单' : '已取消收藏');
+    });
+  });
+
+  /* ===== 弹窗通用 ===== */
+  var mask = document.getElementById('hdmModalMask');
+  var modalTitle = document.getElementById('hdmModalTitle');
+  var modalDesc = document.getElementById('hdmModalDesc');
+  var modalClose = document.getElementById('hdmModalClose');
+  var modalCancel = document.getElementById('hdmModalCancel');
+  var modalConfirm = document.getElementById('hdmModalConfirm');
+
+  function openModal(type){
+    if(!mask) return;
+    if(type === 'submit'){
+      modalTitle.textContent = '投稿 / 合作入口';
+      modalDesc.textContent = '请填写以下信息，花都动漫编辑部会在五个工作日内回复。';
+    }
+    mask.classList.add('is-open');
+  }
+  function closeModal(){
+    if(mask) mask.classList.remove('is-open');
+  }
+  ['hdmSubmitBtn','hdmSubmitBtn2'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.addEventListener('click', function(){ openModal('submit'); });
+  });
+  if(modalClose) modalClose.addEventListener('click', closeModal);
+  if(modalCancel) modalCancel.addEventListener('click', closeModal);
+  if(mask){
+    mask.addEventListener('click', function(e){
+      if(e.target === mask) closeModal();
+    });
+  }
+  if(modalConfirm){
+    modalConfirm.addEventListener('click', function(){
+      var name = document.getElementById('hdmModalName');
+      var email = document.getElementById('hdmModalEmail');
+      if(name && !name.value.trim()){
+        showToast('请先填写你的称呼');
+        name.focus();
+        return;
+      }
+      if(email && !email.value.trim()){
+        showToast('请填写联系邮箱，方便我们回复');
+        email.focus();
+        return;
+      }
+      closeModal();
+      showToast('提交成功，花都动漫编辑部会尽快联系你');
+    });
+  }
+
+  /* ===== 复制链接 ===== */
+  var copyBtn = document.getElementById('hdmCopyLinkBtn');
+  if(copyBtn){
+    copyBtn.addEventListener('click', function(){
+      var text = document.title;
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){
+          showToast('已复制花都动漫官网信息');
+        }).catch(function(){
+          showToast('复制未成功，可手动记录「花都动漫」');
+        });
+      }else{
+        showToast('已准备分享「花都动漫」官方网站');
+      }
+    });
+  }
+
+  /* ===== Toast ===== */
+  var toast = document.getElementById('hdmToast');
+  var toastTimer = null;
+  function showToast(msg){
+    if(!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      toast.classList.remove('is-show');
+    }, 2200);
+  }
+
+  /* ===== 回到顶部 ===== */
+  var backTop = document.getElementById('hdmBackTop');
+  window.addEventListener('scroll', function(){
+    if(!backTop) return;
+    if(window.scrollY > 480){
+      backTop.classList.add('is-show');
+    }else{
+      backTop.classList.remove('is-show');
+    }
+  }, {passive:true});
+  if(backTop){
+    backTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+
+  /* ===== 数字滚动 ===== */
+  function animateCount(el){
+    var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+    var start = null;
+    var duration = 1200;
+    function step(ts){
+      if(!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString('zh-CN');
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var statEls = document.querySelectorAll('[data-count]');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          animateCount(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.5});
+    statEls.forEach(function(el){ io.observe(el); });
+  }else{
+    statEls.forEach(animateCount);
+  }
+
+  /* ===== 导航当前态 ===== */
+  var navLinks = document.querySelectorAll('.hdm-nav a');
+  var sections = [];
+  navLinks.forEach(function(a){
+    var href = a.getAttribute('href');
+    if(href && href.charAt(0) === '#'){
+      var sec = document.querySelector(href);
+      if(sec) sections.push({link:a, sec:sec});
+    }
+  });
+  if('IntersectionObserver' in window && sections.length){
+    var navIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          navLinks.forEach(function(l){ l.classList.remove('is-active'); });
+          sections.forEach(function(item){
+            if(item.sec === entry.target){
+              item.link.classList.add('is-active');
+            }
+          });
+        }
+      });
+    }, {rootMargin:'-120px 0px -60% 0px'});
+    sections.forEach(function(item){ navIo.observe(item.sec); });
+  }
+})();
+</script>
+</body>
+                    </html>
